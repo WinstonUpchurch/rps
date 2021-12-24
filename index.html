@@ -13,7 +13,20 @@
         const scissors = 3;
         const moves = [rock, paper, scissors]; 
         let computerMove;
-        const playerMove = prompt('make your move');
+        let playerMove;
+
+        function playerInput(){
+            const playerHook = (window.prompt('Make your move', undefined))
+            if (playerHook.toLowerCase() == 'rock'){
+                playerMove = rock;
+        }   else if (playerHook.toLowerCase() == 'paper') {
+                playerMove = paper;
+        }   else if (playerHook.toLowerCase() == 'scissors'){
+            playerMove = scissors;
+        } else {
+            playerMove = undefined;
+        }
+    }
        
 
         function computerPlay() {
@@ -27,33 +40,29 @@
             }
         }
 
-        function oneRound(a ,b) {
+        function oneRound(a, b) {
             if (playerMove == 1 && computerMove == 1) {
-                console.log('Tie!');
+                return('Tie!');
                 } else if (playerMove == 1 && computerMove == 2) {
-                console.log('You lose! paper beats rock!');
+                return('You lose! paper beats rock!');
                 } else if (playerMove == 1 && computerMove == 3) {
-                console.log('You win! rock beats scissors!');
+                return('You win! rock beats scissors!');
             }
             if (playerMove == 2 && computerMove == 2) {
-                console.log('Tie!');
+                return('Tie!');
                 } else if (playerMove == 2 && computerMove == 3) {
-                console.log('You lose! scissors beats paper!');
+                return('You lose! scissors beats paper!');
                 } else if (playerMove == 2 && computerMove == 1) {
-                console.log('You win! paper beats rock!');
+                return('You win! paper beats rock!');
             }
             if (playerMove == 3 && computerMove == 3) {
-                console.log('Tie!');
+                return('Tie!');
                 } else if (playerMove == 3 && computerMove == 1) {
-                console.log('You lose! rock beats scissors!');
+                return('You lose! rock beats scissors!');
                 } else if (playerMove == 3 && computerMove == 2) {
-                console.log('You win! scissors beats paper!');
+                return('You win! scissors beats paper!');
             }
         }
-    
-
-
-
     </script>
 </body>
 </html>
