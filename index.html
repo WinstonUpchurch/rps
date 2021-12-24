@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        console.log("computerPlay() to assign a random move to your ai opponent. playerInput() to be prompted for your desired move. oneRound to play a single round.");
         const rock = 1;
         const paper = 2;
         const scissors = 3;
@@ -41,6 +42,9 @@
         }
 
         function oneRound(a, b) {
+            computerPlay();
+            playerInput();
+
             if (playerMove == 1 && computerMove == 1) {
                 return('Tie!');
                 } else if (playerMove == 1 && computerMove == 2) {
@@ -63,6 +67,19 @@
                 return('You win! scissors beats paper!');
             }
         }
+        let yourPoints = 0;
+        let cpuPoints = 0;
+       function bestOfFive(){
+        
+           if (yourPoints < 3 && cpuPoints < 3) {
+            oneRound(playerMove, computerMove);
+           } else if (oneRound().includes('win')) {
+               yourPoints++;
+            } else if (oneRound().includes("lose")) {
+               cpuPoints++;
+            } 
+             
+        } 
     </script>
 </body>
 </html>
