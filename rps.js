@@ -5,11 +5,12 @@ const scissors = 3;
 const moves = [rock, paper, scissors]; 
 let computerMove;
 let playerMove;
-let cpuScore = 0;
-let playerScore = 0;
+let yourPoints = 0;
+let cpuPoints = 0;
 let win = 0;
 
-function playerInput(){
+
+function getInput(){
     const playerHook = (window.prompt('Make your move', undefined))
     if (playerHook.toLowerCase() == 'rock'){
         playerMove = rock;
@@ -23,7 +24,7 @@ function playerInput(){
 }
 
 
-function computerPlay() {
+function getCpuInput() {
    const computerChoice = Math.floor(Math.random() * moves.length); 
     if (computerChoice == 1) {
         computerMove = rock;
@@ -54,17 +55,17 @@ function oneRound() {
         playerScore = 1;
     }
 }
-let yourPoints = 0;
-let cpuPoints = 0;
+
 function scoreKeep(){
 
 if (playerScore > cpuScore) {
     yourPoints++;
     console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
-} else if (cpuScore > playerScore) {
-    cpuPoints++;
-    console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
-} else console.log('tie!')
+    } else if (cpuScore > playerScore) {
+        cpuPoints++;
+        console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
+        } else console.log('tie!')
+
 if (yourPoints == 3) {
     console.log('WINNER:', yourPoints, 'LOSER:', cpuPoints)
     yourPoints = 0;
@@ -73,25 +74,22 @@ if (yourPoints == 3) {
     playerScore = 0;
     win = 1;
     console.log('You won the set!')
-
-   
-} else if (cpuPoints === 3) {
-    console.log('LOSER:', yourPoints, 'WINNER:', cpuPoints)
-    yourPoints = 0;
-    cpuPoints = 0;
-    cpuScore = 0;
-    playerScore = 0;
-    win = 1;
-    console.log('you lost! fuck.... how..')
-    
+    } else if (cpuPoints === 3) {
+        console.log('LOSER:', yourPoints, 'WINNER:', cpuPoints)
+        yourPoints = 0;
+        cpuPoints = 0;
+        cpuScore = 0;
+        playerScore = 0;
+        win = 1;
+        console.log('you lost! fuck.... how..')
+        
 }
-cpuScore = 0;
-playerScore = 0;
+
 } 
 
 function play() {
     win = 0;
     do
-    [playerInput(), computerPlay(), oneRound(), scoreKeep()]
+    [getInput(), getCpuInput(), oneRound(), scoreKeep()]
     while(yourPoints || cpuPoints < 3 && win == 0)  
 }
