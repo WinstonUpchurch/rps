@@ -11,18 +11,17 @@ let win = 0;
 
 
 function getInput(){
-    const playerHook = (window.prompt('Make your move', undefined))
-    if (playerHook.toLowerCase() == 'rock'){
-        playerMove = rock;
-}   else if (playerHook.toLowerCase() == 'paper') {
+const playerHook = (window.prompt('Make your move', undefined))
+if (playerHook.toLowerCase() == 'rock'){
+    playerMove = rock;
+        } else if (playerHook.toLowerCase() == 'paper') {
         playerMove = paper;
-}   else if (playerHook.toLowerCase() == 'scissors'){
-    playerMove = scissors;
-} else {
-    playerMove = undefined;
+            } else if (playerHook.toLowerCase() == 'scissors'){
+            playerMove = scissors;
+                } else {
+                    playerMove = undefined;
 }
 }
-
 
 function getCpuInput() {
    const computerChoice = Math.floor(Math.random() * moves.length); 
@@ -45,46 +44,43 @@ function oneRound() {
     if (playerMove == 2 && computerMove == 2) {
         } else if (playerMove == 2 && computerMove == 3) {
         cpuScore = 1;
-        } else if (playerMove == 2 && computerMove == 1) {
-        playerScore = 1;
+            } else if (playerMove == 2 && computerMove == 1) {
+            playerScore = 1;
     }
     if (playerMove == 3 && computerMove == 3) {;
         } else if (playerMove == 3 && computerMove == 1) {
         cpuScore = 1;
-        } else if (playerMove == 3 && computerMove == 2) {
-        playerScore = 1;
+            } else if (playerMove == 3 && computerMove == 2) {
+            playerScore = 1;
     }
 }
 
 function scoreKeep(){
-
-if (playerScore > cpuScore) {
-    yourPoints++;
-    console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
-    } else if (cpuScore > playerScore) {
-        cpuPoints++;
+    if (playerScore > cpuScore) {
+        yourPoints++;
         console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
-        } else console.log('tie!')
+            } else if (cpuScore > playerScore) {
+                cpuPoints++;
+                console.log('YOU:', yourPoints, 'CPU:', cpuPoints)
+                } else console.log('tie!')
 
-if (yourPoints == 3) {
-    console.log('WINNER:', yourPoints, 'LOSER:', cpuPoints)
-    yourPoints = 0;
-    cpuPoints = 0;
-    cpuScore = 0;
-    playerScore = 0;
-    win = 1;
-    console.log('You won the set!')
-    } else if (cpuPoints === 3) {
-        console.log('LOSER:', yourPoints, 'WINNER:', cpuPoints)
+    if (yourPoints == 3) {
+        console.log('WINNER:', yourPoints, 'LOSER:', cpuPoints)
         yourPoints = 0;
         cpuPoints = 0;
         cpuScore = 0;
         playerScore = 0;
         win = 1;
-        console.log('you lost! fuck.... how..')
-        
+        console.log('You won the set!')
+        } else if (cpuPoints === 3) {
+            console.log('LOSER:', yourPoints, 'WINNER:', cpuPoints)
+            yourPoints = 0;
+            cpuPoints = 0;
+            cpuScore = 0;
+            playerScore = 0;
+            win = 1;
+            console.log('you lost! fuck.... how..')     
 }
-
 } 
 
 function play() {
